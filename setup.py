@@ -12,7 +12,11 @@ def readme():
 
 # Parse repository hash.
 def get_git_hash():
-    label = subprocess.check_output(["git", "rev-parse", "HEAD"]).strip()
+    try:
+        label = subprocess.check_output(["git", "rev-parse", "HEAD"]).strip()
+    except:
+        raise RuntimeError("Unable to find git repository.")
+
     return label.decode("utf-8")
 
 # Parse package version from pypackage/version.py
