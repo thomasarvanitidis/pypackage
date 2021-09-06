@@ -40,5 +40,5 @@ def git_repository_hash():
 
 # Make submodules available to pypackage module.
 
-from .version import __version__
-from .code import __all__
+from pypackage.version import __version__
+from pypackage.code import __all__
